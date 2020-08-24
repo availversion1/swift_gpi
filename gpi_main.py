@@ -15,11 +15,11 @@ COUNT = 1
 def process_json():
     global COUNT
 
-    content = request.get_json()
-    
+    content = request.get_data()
 
     COUNT += 1
     print(content)
+
     return 'Received JSON from client.. #' + str(COUNT)
 
 
