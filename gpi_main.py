@@ -9,12 +9,17 @@ app = Flask(__name__)
 def hello_world():
     return 'Smaranath Arunachala!'
 
+COUNT = 1
 
-@app.route('/swift_api', methods=['POST'])
+@app.route('/file_api', methods=['POST'])
 def process_json():
-    content = request.get_json()
+    global COUNT
 
+    content = request.get_json()
+    
+
+    COUNT += 1
     print(content)
-    return 'This function will process JSON!'
+    return 'Received JSON from client.. #' + str(COUNT)
 
 

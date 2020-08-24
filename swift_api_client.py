@@ -3,17 +3,19 @@
 import requests
 import sys
 
-SWIFT_SERVER = 'http://192.168.29.12:5000/swift_api'
+SWIFT_SERVER = 'http://192.168.29.12:5000/file_api'
+
 
 def send_file_to_server(fname):
     # open file for reading
     p = open(fname, 'r')
-    contents  = p.read()
-    response = requests.post(SWIFT_SERVER, json=contents)
+    contents = p.read()
+    response = requests.post(SWIFT_SERVER, data=contents)
 
     print("Status code: ", response.status_code)
     print("Printing Entire Post Request")
     print(response.text)
+
 
 def main():
     print('')
@@ -23,7 +25,7 @@ def main():
 
     fname = sys.argv[1]
 
-    #open file for reading
+    # open file for reading
     p = open(fname, 'r')
     contents  = p.read()
     response = requests.post(SWIFT_SERVER, json=contents)
