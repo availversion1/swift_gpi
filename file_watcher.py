@@ -4,11 +4,11 @@ import sys
 import time
 import logging
 from watchdog.observers import Observer
-from watchdog.events import LoggingEventHandler, PatternMatchingEventHandler
+from watchdog.events import PatternMatchingEventHandler
 from swift_api_client import send_file_to_server
 
 def on_created(event):
-    print(f"hey, {event.src_path} has been created!")
+    print(f"[FCREATE EVENT] {event.src_path} has been created!")
     send_file_to_server(event.src_path)
 
 
