@@ -3,7 +3,7 @@
 import requests
 import sys
 
-SWIFT_SERVER = 'http://192.168.29.12:5000/file_api'
+SWIFT_SERVER = 'http://192.168.1.20:5000/file_api'
 
 
 def send_file_to_server(fname):
